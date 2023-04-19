@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+
+  <body>
+    <div class="w-screen min-h-screen bg-backGrad">
+      <!-- top-heading -->
+      <div class="flex flex-col gap-16 justify-center items-center pt-8">
+        <h1
+          class="font-merriWeather text-[2rem] font-bold tracking-[1.75px] text-colorLight2-0 uppercase"
+        >
+          weather app
+        </h1>
+        <!-- buttons -->
+        <div class="flex flex-row begin:max-midler:flex-col begin:max-midler:gap-5 midler:max-sm:gap-36 sm:gap-72">
+          <button
+            data-userWeather
+            class="font-merriWeather text-sm font-normal tracking-[1.75px] text-colorLight2-0 py-[0.3125rem] px-2 rounded-md"
+          >
+            Your Weather
+          </button>
+          <button
+            data-searchWeather
+            class="font-merriWeather text-sm font-normal tracking-[1.75px] text-colorLight2-0 py-[0.3125rem] px-2 rounded-md"
+          >
+            Search Weather
+          </button>
+        </div>
+      </div>
+
+      <!-- main-container -->
+      <div class="w-11/12 md:max-lg:max-w-[31rem] lg:max-w-[62.5rem] mx-auto">
+
+        <!-- search form -> form-container-->
+        <form
+          data-searchForm
+          class="flex justify-center items-center gap-3 mt-16 hiddenn"
+        >
+          <input
+            data-searchCity
+            class="w-10/12 lg:w-1/2 font-merriWeather text-base font-normal text-opacity-100 text-colorLight2-0 py-2 px-5 bg-[#dbe2ef] bg-opacity-[50%] rounded-lg outline-none"
+            placeholder="Search for City..."
+          />
+          <button
+            class="w-10 h-10 rounded-full grid place-items-center bg-colorDark2-0"
+            type="submit"
+          >
+            <img
+              src="./images/search.png"
+              width="20"
+              height="20"
+              loading="lazy"
+            />
+          </button>
+        </form>
+
+        <!-- error -->
+        <div data-error class="font-merriWeather text-lg text-colorLight2-0 font-normal w-10/12 max-w-[18.75rem] mx-auto grid place-items-center mt-5 hiddenn">
+          <img class="w-full" src="./images/not-found.png" alt="">
+          city not found
+        </div>
+
+        <!-- grant-access-container -->
+        <div
+          data-grantLocation
+          class="begin:max-sm:w-10/12 begin:max-sm:mx-auto flex flex-col items-center mt-16 gap-2 hiddenn"
+        >
+          <img
+            class="mb-4"
+            src="./images/location.png"
+            alt=""
+            loading="lazy"
+            height="80"
+            width="80"
+          />
+          <h1
+            class="font-merriWeather text-[1.75rem] font-semibold text-colorLight2-0 text-center"
+          >
+            Grant Location Access
+          </h1>
+          <p
+            class="font-merriWeather text-[0.85rem] font-light text-colorLight2-0 tracking-[0.75px] text-center"
+          >
+            Allow Access To Get Weather Information
+          </p>
+          <button
+            data-accessGrant
+            class="font-merriWeather text-sm font-normal text-colorLight2-0 uppercase mt-4 py-[0.625rem] px-[1.875rem] bg-colorDark2-0 rounded-md"
+          >
+            Grant Access
+          </button>
+        </div>
+
+        <!-- loader -->
+        <div
+          data-loader
+          class="flex flex-col justify-center items-center mt-16 hiddenn"
+        >
+          <img class="w-40 h-40" src="./images/loading.gif" alt="" />
+          <h1
+            class="font-merriWeather text-3xl font-semibold text-colorLight2-0 tracking-[.75px]"
+          >
+            Loading...
+          </h1>
+        </div>
+
+        <!-- weather-status-container -->
+        <div
+          data-weatherStatus
+          class="flex flex-col items-center justify-center mt-16 hiddenn"
+        >
+          <div class="flex gap-2.5 items-center mb-2">
+            <h1
+              data-cityName
+              class="font-merriWeather text-[2rem] font-extralight text-colorLight2-0"
+            ></h1>
+            <img
+              data-countryFlag
+              class="w-8 h-6"
+              src="./images/flag.png"
+              alt=""
+            />
+          </div>
+          <h2
+            data-desc
+            class="font-merriWeather text-2xl font-extralight text-colorLight2-0"
+          >
+            Haze
+          </h2>
+          <img
+            data-descIcon
+            class="w-20"
+            src="http://openweathermap.org/img/w/50n.png"
+            alt=""
+          />
+          <h1
+            data-temperature
+            class="font-merriWeather text-[2.75rem] font-bold text-colorLight2-0"
+          >
+            33.96 <span>&#8451;</span>
+          </h1>
+
+          <!-- cards-container -->
+          <div class="flex begin:flex-col sm:flex-row gap-4 justify-center mt-8">
+            <!-- windspeed-container -->
+            <div
+              class="w-[12.5rem] flex flex-col gap-1 justify-center items-center p-4 bg-[#dbe2ef] bg-opacity-[50%] rounded-md"
+            >
+              <img class="w-12" src="./images/wind.png" alt="" />
+              <h1
+                class="font-merriWeather text-2xl font-extralight text-colorLight2-0 uppercase"
+              >
+                windspeed
+              </h1>
+              <h2
+                data-windSpeed
+                class="font-merriWeather text-2xl font-extralight text-colorLight2-0"
+              >
+                2.75 m/s
+              </h2>
+            </div>
+
+            <!-- humidity-container -->
+            <div
+              class="w-[12.5rem] flex flex-col gap-1 justify-center items-center p-4 bg-[#dbe2ef] bg-opacity-[50%] rounded-md"
+            >
+              <img class="w-12" src="./images/humidity.png" alt="" />
+              <h1
+                class="font-merriWeather text-2xl font-extralight text-colorLight2-0 uppercase"
+              >
+                humidity
+              </h1>
+              <h2
+                data-humidity
+                class="font-merriWeather text-2xl font-extralight text-colorLight2-0"
+              >
+                26%
+              </h2>
+            </div>
+
+            <!-- cloud-container -->
+            <div
+              class="w-[12.5rem] flex flex-col gap-1 justify-center items-center p-4 bg-[#dbe2ef] bg-opacity-[50%] rounded-md"
+            >
+              <img class="w-12" src="./images/cloud.png" alt="" />
+              <h1
+                class="font-merriWeather text-2xl font-extralight text-colorLight2-0 uppercase"
+              >
+                clouds
+              </h1>
+              <h2
+                data-cloudness
+                class="font-merriWeather text-2xl font-extralight text-colorLight2-0"
+              >
+                46%
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="./app.js" type="module"></script>
+    </div>
+  </body>
+</html>
